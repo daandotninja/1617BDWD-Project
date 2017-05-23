@@ -6,7 +6,7 @@
 
 ## db Model
 ***
-![db model](https://git.ikdoeict.be/daan.zwaenepoel/1617BDWD-Project/blob/master/dbmodel.png)
+![db model](https://git.ikdoeict.be/daan.zwaenepoel/1617BDWD-Project/raw/master/dbmodel.png)
 
 ## Installation Alivino
 ***
