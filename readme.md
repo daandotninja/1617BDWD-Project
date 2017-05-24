@@ -3,11 +3,13 @@
 ## Template
 ***
 [Template alivino from w3layouts.com ] (https://p.w3layouts.com/demos/sep-2016/15-09-2016/fashion_club/web/)
+## Content
+***
+[content Alivino cc wijnenzo.be](https://www.wijnenzo.be)
 
 ## db Model
 ***
 ![db model](https://git.ikdoeict.be/daan.zwaenepoel/1617BDWD-Project/raw/master/dbmodel.png)
-
 ## Installation Alivino
 ***
 
