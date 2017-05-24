@@ -15,8 +15,8 @@ class CreateOrdesHasProductsTable extends Migration
     {
         Schema::create('orders_has_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('status');
-            $table->bigInteger('amount');
+            
+            $table->integer('amount');
             $table->double('price');
             $table->integer('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
