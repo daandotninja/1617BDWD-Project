@@ -4,14 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Orders_has_prduct extends Model
+class Orders_has_product extends Model
 {
     public function order()
     {
-        return $this->hasMany('App\Order');
+        return $this->belongsTo('App\Order');
     }
     public function product()
     {
-        return $this->hasMany('App\Product');
+        return $this->belongsTo('App\Product');
     }
+    
 }

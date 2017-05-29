@@ -129,7 +129,7 @@ img {
     color: #fff;
     background-color:#722f37;
 }
-.search-agileinfo input[type="search"] {
+.search-agileinfo input[type="text"] {
     width: 87%;
     padding:10px;
     font-size: 1em;
@@ -492,6 +492,7 @@ ul.resp-tabs-list li:nth-child(3):after{
 }
 .top-product-grids,.women-grids{
 	text-align:center;
+    height: 500px;
 }
 .product-img{
 	position:relative;
@@ -2108,6 +2109,7 @@ p.w3-agile{
 	.top-product-grids {
 		width: 25%;
 		float: left;
+        height: 800px;
 	}
 	ul.resp-tabs-list li:nth-child(2):before {
 		width: 5.7%;

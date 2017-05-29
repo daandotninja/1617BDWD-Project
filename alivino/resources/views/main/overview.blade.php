@@ -17,15 +17,23 @@
 <div class="top-products">
 	<div class="container">
 		<h3>Top Sellers</h3>
-		<div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
-			<a href="{{ url('/product/1') }}"><div class="product-img">
-				<img src="images/tp1.jpg" alt="" />
-				
-			</div></a>
-			
-			<h4>Formal shoes</h4>
-			<h5>$220.00</h5>
-		</div>
+		@if ($products)
+            @forelse ($products as $product)
+                <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
+					<a href="{{ @url('/product')}}/{{$product->id}}">
+						<div class="product-img">
+							<img src="images/alivino/wine/{{ $product->img}}" alt="" />
+						</div>
+					</a>
+					<h4>{{ $product->title }}</h4>
+					<h5>${{ $product->price }}</h5>
+				</div>
+            @empty
+                <p>Geen producten gevonden!</p>
+            @endforelse
+           
+
+        @endif
 	</div>
 </div>
 	

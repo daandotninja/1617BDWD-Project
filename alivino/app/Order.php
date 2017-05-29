@@ -6,14 +6,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    public function orders_has_product()
+	protected $fillable = ['status'];
+    public function orders_has_products()
     {
-        return $this->belongsTo('App\Orders_has_product');
+        return $this->hasMany('App\Orders_has_product');
     }
     public function user()
     {
-        return $this->hasMany('App\User');
+        return $this->belongsTo('App\User');
     }
+    public function getTotalPrice() {
+	    return $this->orders_has_products->sum(function($orders_has_product) {
+	      return $orders_has_product->amount * $orders_has_product->price;
+	    });
+  }
+}
    
 
-}
+

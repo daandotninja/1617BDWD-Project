@@ -1,7 +1,7 @@
 {{-- extend the parent tpl --}}
 @extends('layout.master')
 {{-- set the pagetitle in the parent tpl --}}
-@section('title', 'Alivino | Winkel')
+@section('title', 'Alivino | Zoek')
 
 @section('content')
 
@@ -11,7 +11,7 @@
 	<div class="container">
 		
 	
-				@if ($products)
+			@if ($products)
             @forelse ($products as $product)
                 <div class="col-md-3 top-product-grids tp1 animated wow slideInUp" data-wow-delay=".5s">
 					<a href="{{ @url('/product')}}/{{$product->id}}">
@@ -26,7 +26,7 @@
                 <p>Geen producten gevonden!</p>
             @endforelse
             
-				{{ $products->links() }}
+			
         @endif
 
 				

@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-6 phone-w3l">
             <ul>
                 <li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span></li>
-                <li>+18045403380</li>
+                <li>{{ $about->phone}}</li>
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -65,12 +65,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
                 
         <div class="col-md-4 search-agileinfo">
-            <form action="#" method="post">
-                <input type="search" name="Search" placeholder="Search for a Product..." required="">
-                <button type="submit" class="btn btn-default search" aria-label="Left Align">
-                    <i class="fa fa-search" aria-hidden="true"> </i>
-                </button>
-            </form>
+            {!! Form::open(array('url' => '/search', 'method' => 'GET')) !!}
+            {!! Form::text('search', '', array('placeholder'=>"Search for a Product..")) !!}
+            
+            {!! Form::button(' <i class="fa fa-search" aria-hidden="true"> </i>', array('class'=> 'btn btn-default search' ,'aria-label'=>"Left Align",'type'=> 'submit')) !!}
+
+        {!! Form::close() !!}
         </div>
         <div class="col-md-1 cart-wthree">
             <div class="cart"> 
@@ -92,9 +92,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-3 footer-grids fgd1">
         <a href="index.html"><h3>ALIVINO<span>WINE</span></h3></a>
         <ul>
-            <li>1234k Avenue, 4th block,</li>
-            <li>New York City.</li>
-            <li><a href="mailto:info@example.com">info@example.com</a></li>
+            <li>{{ $about->address }}</li>
+            <li>{{ $about->city}}</li>
+            <li><a href="mailto:{{ $about->email}}">{{ $about->email }}</a></li>
             <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
             <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>

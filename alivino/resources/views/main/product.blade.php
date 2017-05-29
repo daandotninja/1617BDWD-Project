@@ -24,29 +24,19 @@
 			<div class="single-page">
 				<div class="single-page-row" id="detail-21">
 					<div class="col-md-6 single-top-left">	
-						<div class="flexslider">
-							<ul class="slides">
-								<li data-thumb="/images/s1.jpg">
-									<div class="thumb-image detail_images"> <img src="/images/s1.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-								</li>
-								<li data-thumb="/images/s2.jpg">
-									 <div class="thumb-image"> <img src="/images/s2.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-								</li>
-								<li data-thumb="/images/s3.jpg">
-								   <div class="thumb-image"> <img src="/images/s3.jpg" data-imagezoom="true" class="img-responsive" alt=""> </div>
-								</li> 
-							</ul>
-						</div>
+						
+									<div class="thumb-image detail_images"> <img src="/images/alivino/wine/{{ $product -> img}}" data-imagezoom="true" class="img-responsive" alt=""> </div>
+					
 					</div>
 					<div class="col-md-6 single-top-right">
-						<h3 class="item_name"> Black Handbag</h3>
+						<h3 class="item_name">{{ $product -> title}} - {{ $product -> year}}</h3>
 						
 						<div class="single-price">
 							<ul>
-								<li>$54</li>  
+								<li>${{ $product -> price}}</li>  
 							</ul>	
 						</div> 
-						<p class="single-price-text">Fusce a egestas nibh, eget ornare erat. Proin placerat, urna et consequat efficitur, sem odio blandit enim, sit amet euismod turpis est mattis lectus. Vestibulum maximus quam et quam egestas imperdiet. In dignissim auctor viverra. </p>
+						<p class="single-price-text">{{ $product -> description}}</p>
 						<form action="#" method="post">
 							<input type="hidden" name="cmd" value="_cart" />
 							<input type="hidden" name="add" value="1" /> 

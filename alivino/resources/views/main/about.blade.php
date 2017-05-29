@@ -7,11 +7,11 @@
 
 <div class="about">
 	<div class="container"> 
-		<h3>About Us</h3>
+		<h3>Over ons</h3>
 		<div class="about-info">
 			<div class="col-md-8 about-grids">
-				<h4>Our latest collection</h4>
-				<p>Dignissimos at vero eos et accusamus et iusto odio ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecat officia. </p>		
+				<h4>Alivno</h4>
+				<p>{{ $about-> about}}</p>		
 					
 			</div>
 			
