@@ -26,13 +26,22 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function isAdmin()
+    {
+        return $this->admin; // this looks for an admin column in your users table
+    }
     public function orders()
     {
         return $this->hasMany('App\Order');
     }
-    public function shoppingcar()
+    public function shoppingcars()
     {
-        return $this->belongsTo('App\Shoppingcar');
+        return $this->hasMany('App\Shoppingcar');
+    }
+    public function getTotalPrice() {
+        return $this->shoppingcars->sum(function($shoppingcar) {
+          return $shoppingcar->amount * $shoppingcar->product->price;
+        });
     }
 
 }

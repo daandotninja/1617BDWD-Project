@@ -74,11 +74,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div class="col-md-1 cart-wthree">
             <div class="cart"> 
-                <form action="#" method="post" class="last"> 
-                    <input type="hidden" name="cmd" value="_cart" />
-                    <input type="hidden" name="display" value="1" />
-                    <button class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-                </form>  
+                
+                    <a href="{{ url('/user/shoppingcar') }}" class="w3view-cart" type="submit" name="submit" value=""><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+            
             </div>
         </div>
         <div class="clearfix"></div>
@@ -115,7 +113,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="col-md-3 footer-grids fgd4">
             <h4>My Account</h4> 
             <ul>
-                <li><a href="login.html">Login</a></li>
+                <li><a href="{{ url('/admin') }}">Admin</a></li>
+               
+
+
+
+                @if (Auth::check())
+                   <li><a href="{{ url('/logout') }}">Logout</a></li>
+                    <li><a href="{{ url('/user') }}">User</a></li>
+
+                @else
+                         <li><a href="{{ url('/user') }}">Login</a></li>
+
+                @endif
             </ul>
         </div>
         <div class="clearfix"></div>
@@ -123,23 +133,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
     <!-- cart-js -->
-    <script src="{{ asset('/js/minicart.js')}}"></script>
-    <script>
-        w3ls1.render();
-
-        w3ls1.cart.on('w3sb1_checkout', function (evt) {
-            var items, len, i;
-
-            if (this.subtotal() > 0) {
-                items = this.items();
-
-                for (i = 0, len = items.length; i < len; i++) {
-                    items[i].set('shipping', 0);
-                    items[i].set('shipping2', 0);
-                }
-            }
-        });
-    </script>  
+    
+    
     <!-- //cart-js -->  
 </body>
 </html>

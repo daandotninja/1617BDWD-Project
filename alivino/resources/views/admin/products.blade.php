@@ -36,7 +36,7 @@
                 <td><a href="{{ @url('/product')}}/{{$product->id}}">{{$product->title}}</a></td>
                 <td>{{$product->year}}</td>
               
-                <td><button type="button" class="btn btn-primary">Edit</button></td>
+                <td><a href="{{ @url('/admin/product/edit')}}/{{$product->id}}"class="btn btn-primary">Edit</a></td>
                  
                  <td>
                    {!! Form::open(array('url'  => '/admin/product/delete/'.$product->id, 'method' => 'DELETE')) !!}

@@ -19,7 +19,7 @@ class Order extends Model
 	    return $this->orders_has_products->sum(function($orders_has_product) {
 	      return $orders_has_product->amount * $orders_has_product->price;
 	    });
-  }
+    }
 }
    
 

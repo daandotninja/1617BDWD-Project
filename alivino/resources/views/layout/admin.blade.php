@@ -39,7 +39,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="nav navbar-nav">
                     <li class=""><a href="{{ @url('/admin') }}">Bestellingen</a></li>
                     <li><a href="{{ @url('/admin/products') }}">Products</a></li>
-                    <li><a href="#">Info</a></li>
+                    <li><a href="{{ @url('/admin/shop/info') }}">Info</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="{{ @url('/logout') }}">Logout </a></li>

@@ -6,13 +6,15 @@ use App\Product;
 use App\Order;
 use App\Orders_has_product;
 use App\Shoppingcar;
+use App\Aboutshop;
+
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function overview()
     {
-	    $orders=Order::all();
+	    $orders=Order::orderBy('created_at','desc')->get();
 		return view('admin.overview', [
 			'orders' => $orders,   
 		]);
@@ -28,6 +30,42 @@ class AdminController extends Controller
 	    	'order' => $order,            
 	    ]);
     }
+    public function info()
+    {
+        
+         $info= Aboutshop::findOrFail(1);
+
+
+        return view('admin.info', [
+            'info' => $info
+        ]);
+    }
+    public function editinfo()
+    {
+        
+         $info= Aboutshop::findOrFail(1);
+
+
+        return view('admin.editinfo', [
+            'info' => $info
+        ]);
+    }
+     public function updateinfo(Request $request)
+    {
+
+        $this->validate($request, [
+            'phone' => 'required|numeric',
+            'address' => 'required',
+            'city' => 'required',
+            'about' => 'required',
+            'email'=> 'required| email',
+        ]);
+        
+        $update = Aboutshop::findOrFail($request->id)->update($request->except('_token'));
+
+        return redirect('/admin/shop/info');
+
+    }
     public function products(Request $request)
     {
         $products= Product::where('year', 'like', '%'.$request->search.'%')
@@ -41,12 +79,42 @@ class AdminController extends Controller
             'products' => $products     
         ]);
     }
-     public function addproductview()
+    public function addproductview()
     {
 
 	    return view('admin.addproductoverview', [
 	       
 	    ]);
+    }
+     public function editproductview($id)
+    {
+        $product= Product::findOrFail($id);
+
+        return view('admin.editproductoverview', [
+           'product' => $product
+        ]);
+    }
+    public function updateproduct(Request $request)
+    {
+
+        $this->validate($request, [
+            'title' => 'required',
+            'year' => 'required|numeric',
+            'price' => 'required|numeric',
+            'description' => 'required',
+            'images'=> 'image',
+        ]);
+        if ($request->hasFile('images')) {
+            $filename = $request->file('images')->getClientOriginalName();
+            $newfilename= md5($filename. time()).'.'.$request->images->extension();
+            $request->file('images')->move( base_path() . '/public/images/alivino/wine/',$newfilename);
+            $request['img']=$newfilename;
+        }   
+       
+        $update = Product::find($request->id)->update($request->except('_token'));
+
+        return redirect('/admin/products');
+
     }
      public function updatestatus(Request $request)
     {
@@ -67,7 +135,7 @@ class AdminController extends Controller
             'year' => 'required|numeric',
             'price' => 'required|numeric',
             'description' => 'required',
-            'images'=> 'required|images',
+            'images'=> 'required|image',
         ]);
         $filename = $request->file('images')->getClientOriginalName();
     	$newfilename= md5($filename. time()).'.'.$request->images->extension();

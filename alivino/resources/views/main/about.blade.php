@@ -11,7 +11,7 @@
 		<div class="about-info">
 			<div class="col-md-8 about-grids">
 				<h4>Alivno</h4>
-				<p>{{ $about-> about}}</p>		
+				<p>{!! $about-> about !!}</p>		
 					
 			</div>
 			

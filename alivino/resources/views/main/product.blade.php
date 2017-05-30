@@ -36,14 +36,13 @@
 								<li>${{ $product -> price}}</li>  
 							</ul>	
 						</div> 
-						<p class="single-price-text">{{ $product -> description}}</p>
-						<form action="#" method="post">
-							<input type="hidden" name="cmd" value="_cart" />
-							<input type="hidden" name="add" value="1" /> 
-							<input type="hidden" name="w3ls1_item" value="Handbag" /> 
-							<input type="hidden" name="amount" value="540.00" /> 
-							<button type="submit" class="w3ls-cart" ><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button>
-						</form>
+						<p class="single-price-text">{!!$product -> description !!}</p>
+					
+						{!! Form::open(array('url' => '/user/shoppingcar/add', 'method' => 'POST')) !!}
+							{!! Form::selectRange('amount', 1,100 ,1,array('class' => '')) !!}
+            				{!! Form::hidden('product_id', $product->id) !!}
+            				 {!! Form::button(' <i class="fa fa-cart-plus" aria-hidden="true"></i> toevoegen', array('class'=> 'w3ls-cart' ,'type'=> 'submit')) !!}
+       					 {!! Form::close() !!}
 						
 					</div>
 				   <div class="clearfix"> </div>  
